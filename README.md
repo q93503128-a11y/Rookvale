@@ -19,4 +19,4 @@ Rookvale is a multiplayer-first 2D pixel open-world RPG being designed for the w
 
 No final combat system, class tree, world structure, economy, content cadence, or production scope has been locked yet. These will be decided collaboratively before implementation expands.
 
-See [`docs/INDEX.md`](docs/INDEX.md) for the canonical design-document map once initialized.
+See [`docs/INDEX.md`](docs/INDEX.md) for the canonical design-document map.
