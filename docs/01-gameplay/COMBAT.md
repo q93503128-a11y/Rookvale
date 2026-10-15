@@ -1,6 +1,6 @@
 # Turn-Based Combat
 
-**Status:** Core turn rules locked; tactical identity and detailed formulas still open
+**Status:** Core turn, action, cooldown, formation, AFK, and party-size rules locked; formulas and advanced combat identity still open
 
 ## Confirmed requirements
 
@@ -28,10 +28,80 @@ Conceptually:
 
 1. Every combatant has a next-action point on the timeline.
 2. The combatant with the earliest point acts.
-3. After acting, its next-action point advances according to effective Speed and the action's delay/cost.
+3. After acting, its next-action point advances according to effective Speed and any action-specific delay/cost rules.
 4. Faster combatants therefore return to the front of the timeline more often.
 
-This allows Speed, slows, haste, heavy skills, quick skills, interrupts, and boss mechanics to interact with one consistent system.
+This allows Speed, slows, haste, interrupts, heavy/quick skills, and boss mechanics to interact with one consistent system.
+
+## Action economy
+
+- A normal turn grants **one standard action**.
+- A standard action is normally one skill, basic attack, item use, defend action, or another full combat command.
+- Special mechanics may grant bonus actions, free actions, follow-ups, reactions, counters, or other exceptions.
+- These exceptions must be explicitly tagged rather than silently treated as ordinary turns.
+- Routine multi-action AP turns are not the default combat model; this keeps multiplayer turns short and readable.
+
+### Bonus-action safeguard
+
+Special effects that grant an additional action should be distinguishable from a naturally earned full timeline turn.
+
+Initial design preference:
+
+- a **natural Speed-earned turn** is a full turn and processes normal turn-start / turn-end systems;
+- a **bonus/free action** does not automatically count as another full turn for every cooldown, duration, regeneration, or damage-over-time system.
+
+This prevents action-granting skills from accidentally accelerating every other temporal mechanic and creating recursive extra-action chains. Exact exception rules remain to be tested.
+
+## Skill cooldowns
+
+Rookvale uses **turn-based skill cooldowns**.
+
+- Stronger or more specialized abilities may become unavailable for a stated number of turns after use.
+- Basic or low-impact skills may have no cooldown.
+- Cooldown reduction/increase can become a legitimate class, equipment, status, or boss mechanic.
+- The interface must show remaining cooldown clearly before the player selects a skill.
+
+### Speed interaction — important balance constraint
+
+Because Speed can grant more full turns, a cooldown that decreases on the user's own turns also makes Speed accelerate skill recycling. This is potentially desirable, but it makes Speed multiplicative: it improves action frequency **and** access to cooldown skills.
+
+Current preferred rule to prototype:
+
+- cooldowns decrease on the owner's **natural full turns**;
+- Speed-earned extra turns therefore legitimately recharge skills faster;
+- special bonus/free actions do **not** automatically tick cooldowns unless a skill explicitly says otherwise;
+- Speed growth, cooldown lengths, haste effects, cooldown reduction, and extra-action effects must be balanced together rather than independently.
+
+This rule is not a promise that every temporal effect uses the same clock. Buffs, debuffs, damage-over-time, regeneration, and boss timers need separate explicit rules later.
+
+## Front / back formation
+
+Combat uses a simple **front row / back row** formation for both tactical readability and class-role value.
+
+### Core rules
+
+- Party members occupy either the front row or back row.
+- Front-row characters have a **higher default enemy target weight**.
+- Back-row characters are safer by probability, not absolutely protected.
+- Enemies may still target the back row when their AI, skill, role, or tactical condition calls for it.
+- Taunt/provoke and other threat-control effects may override or heavily modify normal target weighting.
+- Formation should make tanks meaningful without reducing tank gameplay to raw Defense alone.
+
+### Design intent
+
+The front row should create protection through **risk concentration**, not an invulnerability wall.
+
+Examples of future mechanics that fit this model:
+
+- tank skills that raise personal threat or intercept attacks;
+- enemies that deliberately hunt healers or low-HP targets;
+- ranged attacks that favor back-row targets;
+- cleaves that hit one row;
+- guard effects that redirect a specific ally's incoming attack;
+- displacement effects that move a unit between rows;
+- class skills whose power or target access changes by row.
+
+Not every normal attack must be restricted to the opposing front row. Hard target locks should be skill-specific where useful rather than a universal rule.
 
 ## Turn time limit
 
@@ -67,6 +137,7 @@ Design rules:
 - Normal rewards should be designed around comparable time-to-reward across viable party sizes.
 - Loot/reward ownership should avoid social friction such as one player consuming another player's progression reward; exact reward rules remain open.
 - Some explicitly labeled group content may require or strongly favor parties, while ordinary exploration and main progression must remain solo-capable.
+- Every class path must retain a viable solo progression route even if its optimal multiplayer role is tanking, healing, support, or control.
 
 ## Design goals
 
@@ -82,27 +153,39 @@ Design rules:
 
 External research must continue before locking the systems below:
 
-- action resources: MP, stamina, AP, cooldowns, charges, or hybrids;
+- MP, mana, stamina, class resources, charges, and resource recovery;
+- exact cooldown semantics and typical cooldown lengths;
 - basic-attack purpose;
 - weakness / break / stagger mechanics;
 - status effects and cleanses;
-- guarding, aggro, protection, interception, and tank identity;
+- exact threat/aggro formula and taunt behavior;
+- protection, interception, guarding, and tank identity beyond target weight;
 - healer gameplay beyond repeated HP restoration;
 - reaction / counter / interrupt mechanics;
 - visible future timeline depth;
 - action delay differences between quick and heavy abilities;
+- formation changes and whether moving rows consumes a full action;
 - death, revival, escape, and wipe rules;
 - boss phase structure;
 - exact party-size encounter scaling;
-- exact Speed formula and soft caps.
+- exact Speed formula, diminishing returns, and soft caps.
+
+## External-reference notes
+
+- **Etrian Odyssey:** useful reference for front-row target pressure and keeping fragile characters safer in the rear. Rookvale should avoid making the back row universally untargetable.
+- **Darkest Dungeon:** useful reference for making formation tactically meaningful through skill targeting and position-dependent abilities. Rookvale currently uses a simpler two-row model rather than four exact ranks.
+- **Epic Seven and similar turn-based RPGs:** useful reference for readable turn-count cooldowns, cooldown reduction/increase effects, and speed-driven turn frequency.
+- **Darkest Dungeon II:** useful reference for separating extra/free actions from full turns so extra actions do not automatically process every start/end-of-turn effect or cooldown system.
 
 ## Avoid by default
 
 - simultaneous action selection as the standard combat model;
 - manual ally turn-order negotiation as a routine action;
+- AP-heavy routine turns where every player chains many ordinary actions;
 - basic attack spam as the optimal default;
 - healer gameplay that is only repeated HP restoration;
 - tanks that work only through inflated defense numbers;
+- a universal rule that makes back-row units impossible to target while any front-row unit lives;
 - enemies differentiated only by elemental color;
 - excessive animation time that makes ordinary encounters tedious;
 - party scaling that merely turns enemies into HP sponges.
