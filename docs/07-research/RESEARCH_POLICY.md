@@ -36,6 +36,25 @@ A major system should normally have at least **three meaningful references** bef
 
 More references are expected when the design space is contested or the first examples disagree.
 
+## Active-skill and passive design research
+
+Class abilities are also subject to the research-first rule. Rookvale should not invent an entire active/passive kit from internal intuition alone when comparable mechanics exist externally.
+
+For each class or major specialization being promoted from design-bank status into production:
+
+- inspect active skills from multiple external games that solve similar combat problems;
+- inspect passive/trait systems separately rather than treating passives as afterthoughts;
+- include both turn-based references and strong non-turn-based class/build references when they offer useful mechanic ideas;
+- compare resource loops, cooldowns, target rules, CC, buffs/debuffs, formation effects, timeline effects, summon rules, risk/reward, and solo-versus-party function;
+- prefer mechanics that create decisions, interactions, or play patterns over flat `+X%` bonuses;
+- research skill transformation systems where one base skill can be modified into meaningfully different variants;
+- research specialization/trait systems where passives alter class mechanics, resource rules, weapons, or role identity;
+- never copy another game's exact skill names, text, VFX, numbers, full rotation, or distinctive kit wholesale.
+
+A production-ready class should normally draw from **several distinct references**, not one source game. References should be diversified across genres when useful so Rookvale does not become a disguised clone of any single title.
+
+The goal is synthesis: identify why an ability is interesting, then rebuild the idea around Rookvale's sequential turns, Speed timeline, turn cooldowns, front/back rows, threat, class resources, multiplayer pacing, and single-avatar progression.
+
 ## Research categories
 
 Research is not limited to mechanics. It includes:
@@ -45,6 +64,9 @@ Research is not limited to mechanics. It includes:
 - multiplayer / party interaction
 - tank, healer, damage, control and support roles
 - class and advancement trees
+- active-skill design and skill transformation
+- passive traits and class-mechanic modification
+- CC, buffs, debuffs, cleansing and status interaction
 - encounter and boss design
 - progression, equipment and economy
 - quests, dungeons, raids and world events
@@ -71,7 +93,11 @@ Rookvale may study and adapt design principles, pacing structures, information h
 - **Sea of Stars** — active feedback inside turn-based combat, especially timed input and interruption-style mechanics.
 - **Divinity: Original Sin 2** — action-point economy, environmental combinations and deep party synergy; useful as a depth reference, not a pacing target.
 - **Loomian Legacy** — Roblox-native exploration/battle UX and cross-device interface expectations; not a class-system reference.
+- **Guild Wars 2** — profession mechanics, trait lines, specialization-driven mechanic changes, skill/weapon identity and build-defining passives.
+- **Last Epoch** — class-bound skills, limited action-bar loadout, per-skill specialization trees and meaningful skill transformation.
+- **Diablo IV** — class skill trees, passive/key-passive synergy and multiple playstyle packages inside one class.
+- **Orna / Hero of Aethric class codex** — broad class abilities, passive mechanics and single-avatar skill acquisition references; use selectively because Rookvale does not inherit broad cross-class skill mixing.
 
 ## Rule for Rookvale
 
-**If a major feature has strong external precedents, research them before designing the Rookvale version.**
+**If a major feature has strong external precedents, research them before designing the Rookvale version. Active and passive ability kits are explicitly included in this rule.**
