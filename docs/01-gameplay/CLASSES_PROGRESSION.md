@@ -24,6 +24,55 @@ Rookvale is **not a party-collection game**. Each human player primarily control
 - **Combat skills are class-bound.** Rookvale does not use Orna-style broad cross-class skill inheritance as the default.
 - A character cannot assemble a universal best-of-every-class hotbar by collecting unrelated jobs.
 - Parent/base abilities may remain available to their own descendant branches where the class tree explicitly treats them as part of the same lineage, but unrelated class branches do not freely share skills.
+- **Top-level / primordial class families are organized primarily by weapon family or core combat implement.** Descendants of the same root normally share that weapon family even after their class identities diverge.
+- Weapon families should stay broad enough to support many descendant classes; Rookvale should avoid creating a unique weapon type for every specialization.
+
+## Weapon-root class principle
+
+The earliest class layer is anchored to a **weapon family or primary combat implement**, not merely to a vague fantasy label.
+
+Examples of possible roots for later design, not final names or counts:
+
+- one-handed blade / sword family;
+- heavy weapon family;
+- spear / polearm family;
+- bow / ranged weapon family;
+- dagger / light-weapon family;
+- staff / wand / arcane-focus family;
+- shield-centric family where justified;
+- unarmed / gauntlet family;
+- firearm or mechanical ranged family if the setting supports it;
+- holy focus / tome / instrument / occult implement only when broad enough to sustain a lineage.
+
+The exact weapon taxonomy is still open and must be kept compact. A root weapon should be broad enough that several mechanically different descendants can plausibly use it.
+
+Example structure:
+
+```text
+Staff / Arcane Focus root
+├─ elemental caster lineage
+├─ control / time / spatial lineage
+└─ occult-capable lineage if the final setting and mechanics justify the shared implement
+```
+
+or, if occult gameplay proves mechanically distinct enough to need its own implement and itemization:
+
+```text
+Staff / Arcane Focus root
+└─ conventional spellcraft
+
+Occult Focus root
+└─ necromancy / blood / curse / soul branches
+```
+
+Weapon roots are therefore an **equipment and ancestry rule**, not a promise that every descendant uses identical combat mechanics.
+
+### Weapon inheritance
+
+- Descendants normally retain access to the weapon family of their root lineage.
+- A later class may add a narrower weapon option or alter how the shared weapon is used, but it should not casually abandon the entire root itemization unless that transition is a deliberate defining mechanic.
+- Classes with the same ancestor can therefore share part of the same loot pool even when their skills, passives, resources, and roles differ radically.
+- This keeps the equipment ecosystem manageable and avoids needing dozens of low-population weapon categories.
 
 ## Skill-loadout principle
 
@@ -137,6 +186,23 @@ Class passives are a major part of class identity, not filler.
 
 Each playable class stage should normally have an **innate class passive / mechanic** that is always associated with that class or lineage. Advanced classes may strengthen, replace, or reinterpret the parent's mechanic.
 
+A passive can modify a class resource, but a passive is **not automatically a resource generator** and every class does not need a separate bar merely because it has a passive.
+
+Examples:
+
+- `Resolve` can be a tank class's combat resource. A passive such as **Guardian's Resolve** may grant Resolve when the character successfully intercepts damage. Resolve is then spent by selected defensive or retaliation skills.
+- `Ash` can be a pyromancy resource or stack mechanic. A passive may create Ash when burning enemies die; another skill may consume Ash to spread burns, shorten a cooldown, empower a spell, or trigger a special effect.
+- A healer passive might not create any new resource at all; it could instead convert meaningful overhealing into a barrier.
+- A rogue passive might change the rules of Momentum generation rather than simply giving flat Momentum every turn.
+
+Thus there are several valid passive patterns:
+
+1. **Resource generator** — specific gameplay creates the class resource.
+2. **Resource modifier** — changes how an existing resource is gained, capped, retained, or spent.
+3. **Resource spender modifier** — changes a skill when enough resource is consumed.
+4. **Rule-changing passive without a resource** — modifies threat, formation, cooldowns, statuses, summons, targeting, healing, etc.
+5. **Conditional passive** — activates from a tactical state such as low HP, back row, marked targets, frozen enemies, or protected allies.
+
 Good passives change rules or decisions, for example:
 
 - gaining Resolve when intercepting damage rather than merely gaining +5% Defense;
@@ -164,6 +230,8 @@ Candidate examples, not yet individually locked:
 - ranged focus.
 
 A class resource should change how that class is played rather than merely rename a generic mana bar.
+
+Not every class needs a visible resource bar. Some classes may instead revolve around stacks, marks, charges, summons, HP sacrifice, status states, cooldown manipulation, or other mechanics.
 
 ## Class diversity rule
 
@@ -195,16 +263,18 @@ Occult / forbidden-arts family
 
 This is a structural proposal, not locked naming.
 
-The reason is mechanical and organizational: if Mage owns elemental magic, summoning, necromancy, blood magic, curses, time magic, and every other spell fantasy, its tree becomes disproportionately large and its base identity becomes meaningless.
+The new weapon-root rule means this grouping can be decided partly by **shared implement and itemization** as well as fantasy. If conventional mages and occultists both naturally use the same broad staff/focus item pool, they may share a primordial weapon root and split early into separate magical lineages. If their equipment identity is distinct enough, they may have separate roots.
 
-External games show multiple viable models. Guild Wars 2 treats Necromancer as its own profession and Blood Magic as one of its internal specializations; Diablo IV makes Necromancer its own class with Blood, Bone, Darkness, and Army playstyle families. Rookvale can instead make Necromancer and Blood Mage sibling descendants of an occult root if their mechanics are distinct enough.
+The reason is mechanical and organizational: if Mage owns elemental magic, summoning, necromancy, blood magic, curses, time magic, and every other spell fantasy, its tree becomes disproportionately large and its base identity becomes meaningless.
 
 **Rule:** create a separate class node only when it has enough mechanical identity to deserve one. If Blood Mage and Necromancer ultimately share nearly all gameplay, Blood may be better as a Necromancer specialization. If Blood Mage revolves around HP sacrifice, lifesteal, self-inflicted risk, and blood-resource management while Necromancer revolves around corpses, minions, life force, and death effects, they should be separate branches.
 
 ## Open questions
 
-- Exact number and identity of starting/base classes.
-- Final magic-family structure and whether `Occultist` (working name) is a starting class or a later branch.
+- Exact weapon-family taxonomy and number of primordial weapon roots.
+- Exact number and identity of first playable classes attached to those roots.
+- Whether some weapon roots begin with one broad class before splitting or offer several sibling starting classes immediately.
+- Final magic-family structure and whether occult lineages share the same primordial weapon root as conventional mages.
 - Exact Necromancer / Blood Mage relationship.
 - Can players switch between already-unlocked sibling branches outside combat, and at what cost/location?
 - Is progression primarily character level, class level, equipment, skill mastery, or a combination?
