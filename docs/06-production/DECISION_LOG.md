@@ -61,6 +61,12 @@ The symmetrical `2 branches each` shape is only a test-scope convenience and is 
 
 **Decision:** Innate class passives/mechanics are a major identity layer. Major passives should usually change rules or decisions rather than only provide small generic stat bonuses. CC, buffs, debuffs, threat, front/back rows, timeline manipulation, cooldown changes, summons, and status interactions are all valid class-identity axes.
 
+## 2026-10-16 — Research-first active/passive design
+
+**Decision:** Active skills, passive traits, class mechanics, and skill transformations must be designed through broad external research rather than from a single reference game or internal intuition alone. Production-ready class kits should synthesize several distinct references, including turn-based examples and strong class/build systems from other RPG subgenres when useful. Exact skills, names, text, rotations, numbers, and distinctive kits must not be copied wholesale.
+
+**Decision:** When adapting external mechanics, explicitly audit them against Rookvale's sequential Speed timeline, natural-turn cooldown ticking, bonus-action rules, front/back formation, multiplayer pacing, solo viability, and class-specific resources.
+
 ## 2026-10-15 — Platform order
 
 **Decision:** Develop and visually validate the web version first while preserving future portability to Roblox and mobile.
