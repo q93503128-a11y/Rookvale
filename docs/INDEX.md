@@ -32,7 +32,9 @@ This directory is the canonical design source for Rookvale. The goal is to keep 
 | Multiplayer & parties | [`01-gameplay/MULTIPLAYER.md`](01-gameplay/MULTIPLAYER.md) | Core party/loot/trade direction locked |
 | Multiplayer loot & trade | [`01-gameplay/MULTIPLAYER_LOOT_TRADE.md`](01-gameplay/MULTIPLAYER_LOOT_TRADE.md) | Core rules locked |
 | Death / revival / failure / retreat | [`01-gameplay/DEATH_FAILURE_RETREAT.md`](01-gameplay/DEATH_FAILURE_RETREAT.md) | Core philosophy locked |
-| World structure | [`02-world/WORLD_STRUCTURE.md`](02-world/WORLD_STRUCTURE.md) | Core world model locked |
+| World structure | [`02-world/WORLD_STRUCTURE.md`](02-world/WORLD_STRUCTURE.md) | Core world model + macro shape locked |
+| World macro regions | [`02-world/WORLD_MACRO_REGIONS.md`](02-world/WORLD_MACRO_REGIONS.md) | Initial 8-surface + Isles + underground target locked |
+| World narrative & naming | [`02-world/WORLD_NARRATIVE_AND_NAMING.md`](02-world/WORLD_NARRATIVE_AND_NAMING.md) | Core delivery/naming method locked |
 | Detailed world exploration rules | [`01-gameplay/WORLD_STRUCTURE_EXPLORATION.md`](01-gameplay/WORLD_STRUCTURE_EXPLORATION.md) | Core exploration philosophy locked |
 | Content systems | [`03-content/CONTENT_SYSTEMS.md`](03-content/CONTENT_SYSTEMS.md) | Open |
 | Art direction | [`04-art-ux/ART_DIRECTION.md`](04-art-ux/ART_DIRECTION.md) | Draft |
@@ -41,6 +43,7 @@ This directory is the canonical design source for Rookvale. The goal is to keep 
 | First vertical slice | [`06-production/VERTICAL_SLICE.md`](06-production/VERTICAL_SLICE.md) | Scope mostly defined |
 | Decision history | [`06-production/DECISION_LOG.md`](06-production/DECISION_LOG.md) | Active |
 | External references | [`07-research/REFERENCE_MATRIX.md`](07-research/REFERENCE_MATRIX.md) | Active |
+| World narrative/naming/map research | [`07-research/WORLD_NARRATIVE_NAMING_MAP_RESEARCH_01.md`](07-research/WORLD_NARRATIVE_NAMING_MAP_RESEARCH_01.md) | Active research record |
 | Combat/status research | [`07-research/COMBAT_STATUS_PROTOTYPE_RESEARCH_03.md`](07-research/COMBAT_STATUS_PROTOTYPE_RESEARCH_03.md) | Active research record |
 | Combat prototype cross-check | [`07-research/FIRST_COMBAT_PROTOTYPE_CROSSCHECK_02.md`](07-research/FIRST_COMBAT_PROTOTYPE_CROSSCHECK_02.md) | Audit |
 
@@ -48,10 +51,11 @@ This directory is the canonical design source for Rookvale. The goal is to keep 
 
 The immediate design sequence is now:
 
-1. Design the **actual world geography**: continent/world count, launch Region count, Region themes, cultures, biomes, Tier ranges, and connections.
-2. Define the **starting Region and settlement** strongly enough to support the first playable vertical slice.
-3. Connect world geography to content density: dungeons, bosses, settlements, secrets, advancement content, equipment sources, and multiplayer activities.
-4. Continue deterministic combat implementation/simulation using the already locked Natural-Turn/timeline/status/Break/Threat rules rather than reopening core combat structure without evidence.
-5. After world/content structure is credible, specify quests, world events, gathering/crafting-life content, economy, and endgame repeat structures against that actual geography.
+1. Design the **Rookvale starting Region in detail**: naming family, terrain/topology, central settlement, surrounding Areas, roads, economy, visible history, enemy ecology, dungeons, bosses, and later-return hooks.
+2. Establish a small **internal canonical history** for Rookvale while exposing it through many partial NPC/environmental sources rather than a single lore lecture.
+3. Define the first Region's actual point-of-interest and route layout using sightlines, intentional detours, plausible settlement placement, and physically meaningful roads/bridges/industries.
+4. Connect that detailed Region to content density: quests, class/advancement hooks, equipment sources, secrets, multiplayer activities, and the first Deepways fragment.
+5. Continue deterministic combat implementation/simulation using the already locked Natural-Turn/timeline/status/Break/Threat rules rather than reopening core combat structure without evidence.
+6. After the first Region proves the world model, expand culture/naming sheets and detailed geography for the neighboring Regions rather than naming the entire world ad hoc.
 
-The next useful world-design review point is a concrete Region roster and connection map rather than another abstract discussion of whether Rookvale should be open-world at all.
+The next useful world-design review point is a concrete **Rookvale Region map brief and culture/naming sheet**, not a long prose history of the whole world.
