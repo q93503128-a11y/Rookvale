@@ -11,6 +11,7 @@ Rookvale uses external game research as the first step for major systems. We do 
    - Identify the closest structural analogue.
    - Identify at least one best-in-class reference for the specific system.
    - Identify at least one platform-specific reference when the system touches Web, mobile, or Roblox UX.
+   - Deliberately search beyond the most famous games when lesser-known, niche, indie, or older titles may contain a stronger mechanic example.
 2. **Extract principles, not surface copies**
    - What problem does the reference solve?
    - Why does the implementation work?
@@ -36,6 +37,8 @@ A major system should normally have at least **three meaningful references** bef
 
 More references are expected when the design space is contested or the first examples disagree.
 
+For class kits, passives, reactions, skill transformations, status interactions, and other mechanic-dense systems, the reference set should be wider than the three-source minimum when useful. Do not repeatedly mine only the same famous franchises.
+
 ## Active-skill and passive design research
 
 Class abilities are also subject to the research-first rule. Rookvale should not invent an entire active/passive kit from internal intuition alone when comparable mechanics exist externally.
@@ -45,13 +48,15 @@ For each class or major specialization being promoted from design-bank status in
 - inspect active skills from multiple external games that solve similar combat problems;
 - inspect passive/trait systems separately rather than treating passives as afterthoughts;
 - include both turn-based references and strong non-turn-based class/build references when they offer useful mechanic ideas;
+- intentionally include at least one lesser-known, niche, indie, or otherwise non-obvious reference when a meaningful analogue exists;
 - compare resource loops, cooldowns, target rules, CC, buffs/debuffs, formation effects, timeline effects, summon rules, risk/reward, and solo-versus-party function;
 - prefer mechanics that create decisions, interactions, or play patterns over flat `+X%` bonuses;
 - research skill transformation systems where one base skill can be modified into meaningfully different variants;
 - research specialization/trait systems where passives alter class mechanics, resource rules, weapons, or role identity;
+- research dedicated reaction/counter systems separately from ordinary passives when the class relies on out-of-turn behavior;
 - never copy another game's exact skill names, text, VFX, numbers, full rotation, or distinctive kit wholesale.
 
-A production-ready class should normally draw from **several distinct references**, not one source game. References should be diversified across genres when useful so Rookvale does not become a disguised clone of any single title.
+A production-ready class should normally draw from **several distinct references**, not one source game. References should be diversified across genres and popularity levels when useful so Rookvale does not become a disguised clone of any single title and does not miss good ideas simply because they came from a smaller game.
 
 The goal is synthesis: identify why an ability is interesting, then rebuild the idea around Rookvale's sequential turns, Speed timeline, turn cooldowns, front/back rows, threat, class resources, multiplayer pacing, and single-avatar progression.
 
@@ -66,6 +71,7 @@ Research is not limited to mechanics. It includes:
 - class and advancement trees
 - active-skill design and skill transformation
 - passive traits and class-mechanic modification
+- reaction / counter / interrupt systems
 - CC, buffs, debuffs, cleansing and status interaction
 - encounter and boss design
 - progression, equipment and economy
@@ -97,7 +103,12 @@ Rookvale may study and adapt design principles, pacing structures, information h
 - **Last Epoch** — class-bound skills, limited action-bar loadout, per-skill specialization trees and meaningful skill transformation.
 - **Diablo IV** — class skill trees, passive/key-passive synergy and multiple playstyle packages inside one class.
 - **Orna / Hero of Aethric class codex** — broad class abilities, passive mechanics and single-avatar skill acquisition references; use selectively because Rookvale does not inherit broad cross-class skill mixing.
+- **Fell Seal: Arbiter's Mark** — separate active, passive, and counter layers; useful for dedicated Reaction-slot research.
+- **TROUBLESHOOTER: Abandoned Children** — deep mastery-board composition, conditional passives, and build-density lessons; useful with strong simplification.
+- **Battle Chasers: Nightwar** — turn-timeline actions, temporary combat resource generation, perks, and high-impact Burst abilities.
+- **Siralim Ultimate** — unusually varied specialization perks and rule-changing build identities; mechanic inspiration only, not roster structure.
+- **Darkest Dungeon II** — limited equipped skill set from a larger learned pool and path-driven skill-role changes.
 
 ## Rule for Rookvale
 
-**If a major feature has strong external precedents, research them before designing the Rookvale version. Active and passive ability kits are explicitly included in this rule.**
+**If a major feature has strong external precedents, research them before designing the Rookvale version. Active and passive ability kits are explicitly included in this rule, and popularity is not a filter for whether a useful reference deserves study.**
