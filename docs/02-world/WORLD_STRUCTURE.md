@@ -1,12 +1,16 @@
 # World Structure
 
-**Status:** Core world model locked; exact continents, Region count, Region names, biome distribution, cultures, starting geography, and route topology remain Draft
+**Status:** Core world model and initial macro-world shape locked; final Region names, exact borders, cultures, detailed geography, and route topology remain Draft
 
 ## Confirmed direction
 
 Rookvale uses a **handcrafted multi-Region open world** with strong regional identity, dense exploration, meaningful settlements, physically located dungeons, and fixed authored danger rather than universal player-level scaling.
 
 Detailed exploration, map-revelation, Fast Travel, dungeon-discovery, revisit, and density rules are defined in [`../01-gameplay/WORLD_STRUCTURE_EXPLORATION.md`](../01-gameplay/WORLD_STRUCTURE_EXPLORATION.md).
+
+The long-term initial Lv80 macro-world target is defined in [`WORLD_MACRO_REGIONS.md`](WORLD_MACRO_REGIONS.md).
+
+Narrative delivery, naming, historical layering, and environmental-storytelling rules are defined in [`WORLD_NARRATIVE_AND_NAMING.md`](WORLD_NARRATIVE_AND_NAMING.md).
 
 ## Canonical hierarchy
 
@@ -26,6 +30,18 @@ World
 Regions are large authored spaces made from several connected Areas. Region boundaries may use deliberate loading/transition points where useful for performance, art direction, multiplayer scope, or future Roblox/mobile portability.
 
 Rookvale prioritizes **density and place identity over raw map size**.
+
+## Initial macro-world planning target
+
+The first complete long-form world is currently planned around:
+
+- 8 principal surface Regions on one main landmass;
+- one dispersed sea/island macro-region (working label `Outer Isles`);
+- one connected underground macro-region (working label `Deepways`).
+
+Only `Rookvale` is currently an established in-world Region name. Other macro labels remain production descriptors until culture-specific naming systems are researched and designed.
+
+This planning target does not mean all Regions are built before the first playable release.
 
 ## Region and Tier relationship
 
@@ -86,6 +102,8 @@ Large hubs may provide most essential services. Smaller settlements should refle
 
 Regional flavor must not make basic progression services unreasonably inconvenient.
 
+Settlement placement must make geographic/economic sense. Fishing communities need useful water; mining settlements need extraction and transport routes; forts must control something worth controlling; market towns need roads, river access, hinterlands, or other actual reasons to exist.
+
 ## Exploration principles
 
 Rookvale does not reveal a Region as a complete checklist of undiscovered icons when the player arrives.
@@ -108,6 +126,14 @@ A core world-design invariant is:
 > **Leaving the obvious road should regularly produce meaningful feedback.**
 
 That feedback may be treasure, an NPC, scenery, lore, a shortcut, a hidden route, a dangerous encounter, a resource site, a quest/event, or a mystery meant for later return.
+
+## Narrative geography
+
+World layout also communicates history.
+
+Roads, borders, settlements, ruins, industries, abandoned structures, reused buildings, enemy occupation, and changed travel routes should provide evidence about how the world developed.
+
+Rookvale avoids depending on a single exposition NPC or long mandatory lore sequence to explain these relationships. The player can learn deeper history by combining environmental evidence with partial accounts from multiple NPCs and sources.
 
 ## Fast Travel
 
@@ -138,7 +164,9 @@ Failure/retry rules are defined separately in [`../01-gameplay/DEATH_FAILURE_RET
 
 ## Starting-area requirements
 
-The opening Region should demonstrate Rookvale's identity quickly through:
+The opening Region is `Rookvale`.
+
+It should demonstrate the game's identity quickly through:
 
 - a memorable starting settlement;
 - low-risk nearby exploration;
@@ -147,7 +175,9 @@ The opening Region should demonstrate Rookvale's identity quickly through:
 - a dungeon or equivalent focused activity;
 - visible signs of places that are too dangerous or inaccessible for now;
 - optional discoveries that keep the opening route from feeling scripted;
-- at least one later-return mystery or gate.
+- at least one later-return mystery or gate;
+- visible evidence that the Region used to be busier or function differently;
+- several NPCs whose partial observations together communicate local history without one lore lecture.
 
 ## Platform implications
 
@@ -157,14 +187,13 @@ Technical partitioning supports the world design; it does not replace authored g
 
 ## Open questions
 
-- world/continent count;
-- launch Region count;
-- Region names, cultures, and factions;
-- biome/climate distribution;
-- Region-to-Region topology;
+- final Region names and naming families;
+- detailed cultures and factions;
+- exact biome/climate distribution;
+- final Region-to-Region topology;
 - exact recommended Tier ranges;
-- starting Region and starting settlement;
-- sea/island/underground scope;
+- detailed Rookvale map and settlement layout;
+- exact sea/island/underground routes;
 - Fast Travel fiction and final density;
 - map fog/revelation presentation;
 - exploration journal presentation;
@@ -172,4 +201,5 @@ Technical partitioning supports the world design; it does not replace authored g
 - settlement service/economy distribution;
 - dungeon density per Region;
 - world-event placement/persistence;
-- day/night and weather systems.
+- day/night and weather systems;
+- detailed political/religious history.
