@@ -17,24 +17,34 @@ This directory is the canonical design source for Rookvale. The goal is to keep 
 | --- | --- | --- |
 | Product identity | [`00-product/VISION.md`](00-product/VISION.md) | Draft |
 | Core gameplay loop | [`01-gameplay/CORE_LOOP.md`](01-gameplay/CORE_LOOP.md) | Draft |
-| Turn-based combat | [`01-gameplay/COMBAT.md`](01-gameplay/COMBAT.md) | Open |
-| Classes & progression | [`01-gameplay/CLASSES_PROGRESSION.md`](01-gameplay/CLASSES_PROGRESSION.md) | Open |
-| Multiplayer & parties | [`01-gameplay/MULTIPLAYER.md`](01-gameplay/MULTIPLAYER.md) | Draft |
+| Turn-based combat | [`01-gameplay/COMBAT.md`](01-gameplay/COMBAT.md) | Core locked / prototype specified |
+| Combat vocabulary & duration | [`01-gameplay/COMBAT_VOCABULARY.md`](01-gameplay/COMBAT_VOCABULARY.md) | Prototype specified |
+| Combat numeric skeleton | [`01-gameplay/PROTOTYPE_NUMBERS.md`](01-gameplay/PROTOTYPE_NUMBERS.md) | Draft implementation baseline |
+| First combat enemy set | [`01-gameplay/PROTOTYPE_ENEMIES.md`](01-gameplay/PROTOTYPE_ENEMIES.md) | Draft implementation target |
+| Classes & progression | [`01-gameplay/CLASSES_PROGRESSION.md`](01-gameplay/CLASSES_PROGRESSION.md) | Core direction locked / content expanding |
+| Ability loadout | [`01-gameplay/ABILITY_LOADOUT_SYSTEM.md`](01-gameplay/ABILITY_LOADOUT_SYSTEM.md) | Core architecture locked |
+| First eight class kits | [`01-gameplay/classes/`](01-gameplay/classes/) | Draft for prototype |
+| Multiplayer & parties | [`01-gameplay/MULTIPLAYER.md`](01-gameplay/MULTIPLAYER.md) | Draft / core party assumptions set |
 | World structure | [`02-world/WORLD_STRUCTURE.md`](02-world/WORLD_STRUCTURE.md) | Draft |
 | Content systems | [`03-content/CONTENT_SYSTEMS.md`](03-content/CONTENT_SYSTEMS.md) | Open |
 | Art direction | [`04-art-ux/ART_DIRECTION.md`](04-art-ux/ART_DIRECTION.md) | Draft |
 | UI / UX | [`04-art-ux/UI_UX.md`](04-art-ux/UI_UX.md) | Open |
 | Platform architecture | [`05-technical/PLATFORM_ARCHITECTURE.md`](05-technical/PLATFORM_ARCHITECTURE.md) | Draft |
-| First vertical slice | [`06-production/VERTICAL_SLICE.md`](06-production/VERTICAL_SLICE.md) | Open |
+| First vertical slice | [`06-production/VERTICAL_SLICE.md`](06-production/VERTICAL_SLICE.md) | Scope mostly defined |
 | Decision history | [`06-production/DECISION_LOG.md`](06-production/DECISION_LOG.md) | Active |
 | External references | [`07-research/REFERENCE_MATRIX.md`](07-research/REFERENCE_MATRIX.md) | Active |
+| Combat/status research | [`07-research/COMBAT_STATUS_PROTOTYPE_RESEARCH_03.md`](07-research/COMBAT_STATUS_PROTOTYPE_RESEARCH_03.md) | Active research record |
+| Combat prototype cross-check | [`07-research/FIRST_COMBAT_PROTOTYPE_CROSSCHECK_02.md`](07-research/FIRST_COMBAT_PROTOTYPE_CROSSCHECK_02.md) | Audit |
 
-## Current design questions
+## Current high-value next work
 
-The next high-value decisions are:
+The immediate design-to-implementation sequence is now:
 
-1. What makes Rookvale's turn-based combat distinct?
-2. How many players form a standard party, and how does co-op battle flow work?
-3. What is the initial class model and how do branching advancements work?
-4. How is the open world partitioned into regions, towns, dungeons, and level bands?
-5. Which systems belong in the first playable vertical slice versus later production?
+1. Build a deterministic combat simulation/core around Natural Turns, Timeline Units, cooldowns, four duration clocks, statuses, Break, Threat, rows, Guard/Intercept, and the first numeric formulas.
+2. Implement the minimal representative first-eight class kits identified in the existing class cross-check rather than every learned skill at once.
+3. Implement the prototype normal enemies, Elite, and Black Banner Captain test encounter as a mechanical harness; names/lore remain replaceable.
+4. Instrument combat telemetry before attempting serious balance: Natural Turns, damage/healing/prevention, target distribution, Break/control frequency, resource flow, TTK, and party-size scaling.
+5. Only after the deterministic rules survive simulation should the web combat UI/animation layer become the main source of balance feedback.
+6. In parallel/after the combat core is credible, continue world/vertical-slice work: starting settlement, exploration area, dungeon/special area, rewards/equipment, NPC/quest content, and early multiplayer validation.
+
+The next useful user review point is playable/simulated evidence rather than another abstract combat-rule round, unless implementation reveals a genuine design fork.
