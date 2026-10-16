@@ -1,6 +1,6 @@
 # Equipment Foundation
 
-**Status:** Core equipment philosophy locked; exact stats, affix pools, upgrade/crafting costs, drop rates, and final rarity names remain Draft
+**Status:** Core equipment philosophy and stat/affix architecture locked; exact numeric budgets, upgrade/crafting costs, drop rates, and final rarity names remain Draft
 
 ## Core philosophy
 
@@ -13,6 +13,8 @@ The design separates three concepts:
 - **Unique identity** = hand-authored effects that can enable or reshape builds.
 
 Equipment Tier and Rarity are not the same axis.
+
+Detailed stat and affix rules are defined in `EQUIPMENT_STATS_AFFIXES.md`.
 
 ## Equipment slots
 
@@ -80,31 +82,59 @@ Within the same Equipment Tier, higher rarity primarily provides combinations of
 - distinctive visuals/lore;
 - target-farm identity.
 
-## Set items
+Working ordinary-item structure:
 
-Traditional multi-piece set equipment is **not part of the default Rookvale equipment plan**.
+| Rarity | Structure |
+| --- | --- |
+| Common | Base / Implicit only |
+| Uncommon | Base + 1 Minor |
+| Rare | Base + 2 Minor |
+| Epic | Base + 2 Minor + 1 Major |
+| Unique | hand-authored Base + Unique rule package |
 
-Rookvale should avoid 4-6 piece sets or other structures that reserve many equipment slots for one predefined package and reduce build mixing.
+A well-matched Rare may therefore be preferable to a poorly matched Epic.
 
-If a future exceptional item pair or narrative equipment combination is ever introduced, it should be treated as a special case rather than establishing a general set-item system.
+## Core stat direction
 
-## Ordinary randomized equipment
+Ordinary equipment primarily works with a compact stat set.
 
-Ordinary equipment may use limited randomized affixes, but Rookvale should avoid long lists of narrow percentage conditions.
+Primary stats:
 
-Working structure:
+- Max HP;
+- Power;
+- Defense.
+
+General secondary stats:
+
+- Critical Chance;
+- Critical Damage;
+- Break Potency;
+- Healing Potency;
+- Barrier Potency.
+
+Raw Speed is a controlled stat and is **not** part of the general random Minor Affix pool because of its compound impact on Natural-Turn frequency, cooldown cycling, resource cadence, and timeline behavior.
+
+Rookvale does not add STR/INT/VIT/DEX intermediary attributes merely to convert them into these combat stats, and it does not reintroduce universal Accuracy/Evasion/Status-Hit itemization without a demonstrated combat need.
+
+## Minor and Major Affixes
+
+Ordinary equipment may use limited randomized affixes while avoiding long lists of narrow conditional percentages.
+
+- **Minor Affixes** provide readable numeric or system-tag specialization.
+- **Major Affixes** provide bounded mechanical hooks that influence play without rewriting an entire class.
+- **Unique effects** may go further and create true build-around rule changes.
+
+Minor Affix values may have a **small random roll range**. The affix family should matter more than whether the player rolled the absolute maximum value.
+
+Example principle:
 
 ```text
-Base item / base stats
-+
-0-2 Minor Affixes
-+
-0-1 Major Affix where appropriate
+Tier V Break Potency affix: +8% to +10%
 ```
 
-The exact count by rarity remains Draft.
+Exact ranges remain Draft.
 
-Prefer readable affixes tied to combat systems and tags such as:
+Prefer affixes tied to reusable combat systems and tags such as:
 
 - Break;
 - Barrier;
@@ -120,6 +150,16 @@ Prefer readable affixes tied to combat systems and tags such as:
 - row / formation interactions.
 
 Avoid bloating the pool with a separate narrow affix for every individual class where a reusable system-tag effect can serve several classes.
+
+## Set items
+
+Traditional multi-piece set equipment is **not part of the default Rookvale equipment plan**.
+
+Rookvale should avoid 4-6 piece sets or other structures that reserve many equipment slots for one predefined package and reduce build mixing.
+
+Armor-weight completion bonuses are also avoided; Light/Medium/Heavy pieces may be mixed freely unless a specific item explicitly says otherwise.
+
+If a future exceptional item pair or narrative equipment combination is ever introduced, it should be treated as a special case rather than establishing a general set-item system.
 
 ## Unique equipment
 
@@ -142,6 +182,8 @@ Unique effects may alter:
 - specific lineage mechanics where a class-specific Unique is justified.
 
 Class- or lineage-specific Unique equipment is allowed where it strengthens identity and the loot source is sufficiently targetable.
+
+Low-Tier Uniques do not normally promote into later-Tier-equivalent Uniques. Later regions and bosses must retain their own desirable equipment identities.
 
 ## No equipment starvation
 
@@ -215,11 +257,12 @@ This means encounter tuning must not assume the player already owns a rare Uniqu
 
 ## Open questions
 
-- exact item stat architecture;
-- exact affix families and affix counts by rarity;
+- exact numeric stat budgets by Tier and slot;
+- exact Affix pools and exact random-roll ranges;
 - exact rarity names/colors;
-- exact Light/Medium/Heavy implementation;
+- final Light/Medium/Heavy base profiles;
 - crafting and enhancement systems;
+- rerolling/reforging/affix-editing rules;
 - repair/durability policy;
 - trading and binding policy;
 - Unique drop protection / pity / deterministic acquisition;
