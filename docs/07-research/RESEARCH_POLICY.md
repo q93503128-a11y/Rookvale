@@ -11,7 +11,7 @@ Rookvale uses external game research as the first step for major systems. We do 
    - Identify the closest structural analogue.
    - Identify at least one best-in-class reference for the specific system.
    - Identify at least one platform-specific reference when the system touches Web, mobile, or Roblox UX.
-   - Deliberately search beyond the most famous games when lesser-known, niche, indie, or older titles may contain a stronger mechanic example.
+   - Deliberately search beyond the most famous games when lesser-known, niche, indie, older, regional, or mechanically unusual titles may contain a stronger example.
 2. **Extract principles, not surface copies**
    - What problem does the reference solve?
    - Why does the implementation work?
@@ -37,7 +37,30 @@ A major system should normally have at least **three meaningful references** bef
 
 More references are expected when the design space is contested or the first examples disagree.
 
-For class kits, passives, reactions, skill transformations, status interactions, and other mechanic-dense systems, the reference set should be wider than the three-source minimum when useful. Do not repeatedly mine only the same famous franchises.
+For class kits, passives, reactions, skill transformations, status interactions, and other mechanic-dense systems, the reference set should be substantially wider than the three-source minimum.
+
+### Broad-survey target for production class kits
+
+When a class or advanced specialization is being promoted from the long-term design bank into actual production, use two research passes:
+
+1. **Discovery pass** — normally inspect roughly **10-20 games, classes, or mechanic systems** that might contain useful ideas.
+2. **Synthesis pass** — retain roughly **6-10 meaningful references** that genuinely contributed a mechanic lesson, warning, or alternative.
+
+These are quality targets, not quotas. Stop adding references when new examples stop contributing useful information, and exceed the range when the class fantasy is broad or unusual.
+
+The discovery set should deliberately mix several categories where relevant:
+
+- turn-based / tactical RPGs;
+- MMORPGs;
+- class-heavy ARPGs;
+- indie or niche RPGs;
+- older games with unusual mechanics;
+- mobile / cross-platform RPGs when UI or pacing matters;
+- games outside the exact genre when they solve the same mechanical problem well.
+
+A production class should normally include **multiple lesser-known or non-obvious references**, not merely one token indie title. Popularity is never a quality filter.
+
+The purpose is mechanic vocabulary, not citation count. One game must never become the template for an entire Rookvale class.
 
 ## Active-skill and passive design research
 
@@ -48,12 +71,13 @@ For each class or major specialization being promoted from design-bank status in
 - inspect active skills from multiple external games that solve similar combat problems;
 - inspect passive/trait systems separately rather than treating passives as afterthoughts;
 - include both turn-based references and strong non-turn-based class/build references when they offer useful mechanic ideas;
-- intentionally include at least one lesser-known, niche, indie, or otherwise non-obvious reference when a meaningful analogue exists;
+- intentionally search lesser-known, niche, indie, older, and mechanically unusual games for ideas that famous games may not expose;
 - compare resource loops, cooldowns, target rules, CC, buffs/debuffs, formation effects, timeline effects, summon rules, risk/reward, and solo-versus-party function;
 - prefer mechanics that create decisions, interactions, or play patterns over flat `+X%` bonuses;
 - research skill transformation systems where one base skill can be modified into meaningfully different variants;
 - research specialization/trait systems where passives alter class mechanics, resource rules, weapons, or role identity;
 - research dedicated reaction/counter systems separately from ordinary passives when the class relies on out-of-turn behavior;
+- search for failure cases as well as successful implementations, especially degenerate loops, mandatory picks, dead skills, boss-invalidated CC, and multiplayer grief potential;
 - never copy another game's exact skill names, text, VFX, numbers, full rotation, or distinctive kit wholesale.
 
 A production-ready class should normally draw from **several distinct references**, not one source game. References should be diversified across genres and popularity levels when useful so Rookvale does not become a disguised clone of any single title and does not miss good ideas simply because they came from a smaller game.
@@ -104,10 +128,13 @@ Rookvale may study and adapt design principles, pacing structures, information h
 - **Diablo IV** — class skill trees, passive/key-passive synergy and multiple playstyle packages inside one class.
 - **Orna / Hero of Aethric class codex** — broad class abilities, passive mechanics and single-avatar skill acquisition references; use selectively because Rookvale does not inherit broad cross-class skill mixing.
 - **Fell Seal: Arbiter's Mark** — separate active, passive, and counter layers; useful for dedicated Reaction-slot research.
-- **TROUBLESHOOTER: Abandoned Children** — deep mastery-board composition, conditional passives, and build-density lessons; useful with strong simplification.
+- **TROUBLESHOOTER: Abandoned Children** — deep mastery-board composition, fixed masteries, conditional passives, and mastery-set interactions; useful with strong simplification.
 - **Battle Chasers: Nightwar** — turn-timeline actions, temporary combat resource generation, perks, and high-impact Burst abilities.
 - **Siralim Ultimate** — unusually varied specialization perks and rule-changing build identities; mechanic inspiration only, not roster structure.
 - **Darkest Dungeon II** — limited equipped skill set from a larger learned pool and path-driven skill-role changes.
+- **Crystal Project** — innate class passives, flexible weapon access, threat, stance, and cooldown-rule examples in a turn-based class system.
+- **Bravely Default** — support-ability slot budgeting and the idea that stronger passives can consume more build capacity; Rookvale currently prefers simpler equal-slot passives unless testing proves weighted slots worthwhile.
+- **Octopath Traveler** — four-support-skill loadouts and strong passive interactions; useful as a passive-count reference, not as a cross-job inheritance template.
 
 ## Rule for Rookvale
 
