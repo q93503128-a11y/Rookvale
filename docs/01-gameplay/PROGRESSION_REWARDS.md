@@ -1,6 +1,6 @@
 # Progression Rewards
 
-**Status:** Core reward philosophy locked; exact XP curves, Character Tier count/names, and level pacing remain Draft
+**Status:** Core reward philosophy and initial Level/Tier structure locked; exact XP curves, Tier names, and numeric power steps remain Draft
 
 ## Core rule
 
@@ -21,7 +21,8 @@ Frequent, granular permanent growth.
 - represents ordinary character advancement;
 - raises baseline combat capability according to the final stat-growth model;
 - does not reset when changing class;
-- progresses more frequently than Character Tier.
+- progresses more frequently than Character Tier;
+- uses automatic baseline stat growth rather than a mandatory manual STR/DEX/VIT-style point allocation layer.
 
 ### Character Tier
 
@@ -40,7 +41,32 @@ A Tier increase should feel materially important. It may unlock or improve combi
 
 Tier should not become one enormous multiplicative stat modifier that makes Character Level, class identity, and equipment irrelevant. It is a major milestone and permission layer with a noticeable power step.
 
-The final number, names, visual ranks, promotion requirements, and exact power increase remain Draft.
+### Initial launch-era Level/Tier structure
+
+The current baseline is:
+
+```text
+Tier I      Lv. 1-10
+Tier II     Lv.11-20
+Tier III    Lv.21-30
+Tier IV     Lv.31-40
+Tier V      Lv.41-50
+Tier VI     Lv.51-60
+Tier VII    Lv.61-70
+Tier VIII   Lv.71-80
+```
+
+This is the **initial progression plan**, not a permanent promise that the game can never expand beyond Lv.80 or Tier VIII.
+
+Future expansions may raise the Character Level cap, add higher Character Tiers, or introduce another justified progression layer when sufficient new content exists. Do not reserve empty Tiers merely for hypothetical future expansion, and do not build the launch curve around endless vertical inflation.
+
+A normal Tier promotion requires:
+
+1. reaching the current Tier's level cap;
+2. satisfying the appropriate personal world/progression milestone;
+3. completing the Tier's Advancement Quest / Promotion Journey.
+
+See `ADVANCEMENT_CONTENT.md` for the canonical advancement-content rules.
 
 ### Class Mastery
 
@@ -50,6 +76,24 @@ Class-specific breadth and mechanical depth.
 - primarily unlocks skills, passives, Reactions, Signatures, Techniques, and additional build choices;
 - does not require unrelated classes to be mastered for universal combat power;
 - low Mastery does not erase the Character Level / Tier baseline needed to use a newly unlocked class in current content.
+
+## Character stat-growth direction
+
+Character Level and Tier provide baseline growth, but the player's currently equipped class determines how that baseline is expressed in combat.
+
+The class used while gaining a level does **not** permanently alter future stat growth.
+
+Changing from Knight to Pyromancer, for example, recalculates the level-appropriate baseline using the Pyromancer's class profile rather than preserving a permanently Knight-shaped growth history.
+
+This avoids `I leveled with the wrong class, so my permanent stats are ruined` optimization traps.
+
+The first prototype keeps the baseline stat vocabulary compact. Long-term itemization may later split some stats if testing justifies it.
+
+### Speed caution
+
+Speed is a high-leverage combat stat because it changes Natural-Turn frequency, cooldown cycling, resource cadence, and timeline pressure.
+
+Therefore Character Level/Tier growth should not cause Speed to inflate on the same scale as HP / Power / Defense. Speed remains strongly class-profiled and tightly controlled through equipment, passives, and explicit effects.
 
 ## Character XP
 
@@ -79,7 +123,7 @@ Primary sources include:
 - Elite and Boss encounters;
 - dungeon progression and clears;
 - combat-focused events;
-- Class Trials;
+- Class Trials / Advancement content;
 - class-specific quests and challenges.
 
 Class Mastery is not primarily awarded for repetitive button usage. Rookvale does not use rules such as `Guard 20 times` or `cast Heal 50 times` as the default advancement engine.
@@ -241,22 +285,55 @@ Examples:
 
 The target is **allow the social carry; block the progression skip**.
 
-## Major encounter eligibility
+## Advancement content and difficulty
 
-Major progression encounters normally require the character's own unlock state.
+Tier promotion and class advancement use dedicated advancement content rather than one universal menu exam.
 
-Examples:
+Advancement may involve NPC quests, incidents, exploration, puzzles, preparation, combat, bosses, short dungeons, longer questlines, or combinations of these.
 
-- major dungeons;
-- progression bosses;
-- raids or raid-like challenges;
-- extreme endgame spaces;
-- progression-critical world events;
-- class advancement trials.
+Mandatory advancement should require some understanding and execution, but it must not become an indefinite skill wall.
 
-An eligible host cannot simply invite an ineligible character and grant them full progression access/rewards.
+Normal character growth matters:
 
-Exact Tier, quest, region, equipment, or milestone requirements are content-specific and remain Draft.
+- current Level/Tier baseline applies;
+- equipment and build improvements apply;
+- preparation and permitted consumables may apply;
+- Class Mastery/loadout improvements may apply.
+
+A player who struggles can therefore become stronger and return rather than being stuck against a fully normalized fixed-stat test forever.
+
+Repeated failure in mandatory instanced content may also unlock optional assistance such as stronger NPC help, clearer hints, temporary attempt-only buffs, or reduced mechanic intensity. Completing with assistance still counts as normal legitimate progression.
+
+Optional prestige challenges may use harder or normalized rules separately.
+
+See `ADVANCEMENT_CONTENT.md` for full rules.
+
+## No hidden level-difference combat penalty
+
+Rookvale does not need a universal hidden rule such as `60 levels under target = -90% damage / -80% hit chance`.
+
+Higher-Tier enemies are difficult because their actual combat stats, mechanics, formations, status tools, and encounter design are stronger.
+
+A lower-Tier player may defeat content above the intended band through exceptional play or preparation where access rules permit it, but the personal reward clamp still prevents this from becoming a progression skip.
+
+## Launch-era level cap and later expansion
+
+The current launch-era target is **Lv.80 / Tier VIII**.
+
+At Lv.80, Rookvale does not default to an infinite Character Power level that permanently widens combat-stat gaps forever.
+
+Long-term progression can instead continue through:
+
+- equipment;
+- Class Mastery;
+- additional classes and lineages;
+- build options;
+- high-difficulty content;
+- crafting, collection, exploration, and other systems.
+
+Experience earned at the current cap may later feed repeatable non-mandatory rewards rather than infinite direct Character Power.
+
+However, Lv.80 / Tier VIII is an initial cap, not an immutable lifetime maximum. A future expansion may raise it when the world and content genuinely justify a new vertical progression era.
 
 ## Participation
 
@@ -279,7 +356,7 @@ The earlier Class Mastery direction remains:
 - early Mastery ranks are fast;
 - the class's core combat loop becomes available quickly;
 - later Mastery increasingly unlocks build breadth rather than raw stat necessity;
-- important milestones may use Class Trials;
+- important milestones may use Class Advancement content;
 - Max Mastery is not a prerequisite for the class to have level-appropriate base combat power;
 - mastering unrelated classes must not become a mandatory source of universal combat stats.
 
@@ -292,18 +369,21 @@ The earlier Class Mastery direction remains:
 - universal veteran down-scaling in ordinary world/content;
 - role-performance XP competition between tank/healer/DPS;
 - repetitive skill-use grinding as the main Class Mastery engine;
-- hard Character-Level walls around every open-world zone.
+- hard Character-Level walls around every open-world zone;
+- manual stat allocation as a required baseline progression layer;
+- permanent stat damage from leveling under the `wrong` class;
+- universal hidden level-difference damage/hit penalties;
+- mandatory fully normalized progression trials that ignore normal character growth;
+- launch design built around infinite direct Character Power levels.
 
 ## Open numbers and implementation questions
 
-- final Character Level cap;
-- how Character Levels are grouped around Character Tier milestones;
-- Character Tier count and names;
-- exact Tier-promotion requirements;
+- final player-facing names/themes for Tier I-VIII;
 - exact immediate power granted by Tier promotion;
-- exact XP curve;
+- exact Character XP curve;
 - exact Class Mastery rank count and XP curve;
 - exact reward budgets by activity;
 - whether one adjacent locked Tier receives partial grace rewards;
 - exact participation threshold;
-- equipment and trading interaction with Character Tier eligibility.
+- equipment and trading interaction with Character Tier eligibility;
+- eventual conditions under which a future expansion should raise Lv.80 / Tier VIII.
