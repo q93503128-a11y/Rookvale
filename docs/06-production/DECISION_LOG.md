@@ -67,19 +67,23 @@ The symmetrical `2 branches each` shape is only a test-scope convenience and is 
 
 **Decision:** When adapting external mechanics, explicitly audit them against Rookvale's sequential Speed timeline, natural-turn cooldown ticking, bonus-action rules, front/back formation, multiplayer pacing, solo viability, and class-specific resources.
 
+**Decision:** Production class research should use a broad discovery pass rather than only checking a few famous games. As a normal quality target, inspect roughly **10-20 candidate games/classes/mechanic systems**, then retain roughly **6-10 genuinely useful references** for synthesis. Include multiple lesser-known, indie, older, regional, or otherwise non-obvious sources when useful. These are quality targets, not quotas.
+
 ## 2026-10-16 — Mature ability-loadout architecture
 
-**Decision:** Prototype a mature loadout with **8 normal active-skill slots**, **4 selectable passive slots**, **1 innate class mechanic/passive**, **1 dedicated Reaction slot**, and **1 separate Signature slot**. Universal commands such as basic attack, Defend, items, and escape do not consume the eight normal active slots.
+**Decision:** Prototype a mature loadout with **8 normal active-skill slots**, **4 selectable passive slots**, **1 innate class mechanic/passive package**, **1 dedicated Reaction slot**, and **1 separate Signature slot**. Universal commands such as basic attack, Defend, items, and escape do not consume the eight normal active slots.
 
 **Decision:** The eight normal active slots are not divided into mandatory attack/defense/support quotas. A class may support offensive, defensive, control, support, hybrid, boss, or solo loadouts using the same slot structure.
 
-**Decision:** Early progression may unlock some slots gradually for onboarding, but the mature structure should become available before serious buildcraft. Slot unlocking is not intended as a long-term grind wall.
+**Decision:** Use progressive onboarding rather than exposing the entire build screen immediately. Prototype direction is approximately **4 -> 6 -> 8 normal active slots** as the character develops, while passive, Reaction, Signature, and Technique layers are introduced before serious buildcraft. Exact unlock levels remain tunable.
 
 ## 2026-10-16 — Innate and selectable passives
 
-**Decision:** Every mature class has one primary innate class mechanic/passive that does not consume a selectable passive slot. Advanced classes normally evolve, replace, or reinterpret the ancestral mechanic instead of stacking endless innate passives from every promotion.
+**Decision:** Every mature class has one primary innate class-mechanic/passive package that does not consume a selectable passive slot. This may be a linked core rule set rather than literally one effect. Advanced classes normally evolve, replace, or reinterpret the ancestral mechanic instead of stacking endless innate passives from every promotion.
 
 **Decision:** A mature build equips four class-bound selectable passives. Major passive choices should normally change rules, resources, statuses, threat, rows, cooldown/timeline behavior, summons, or role interactions rather than consist mainly of generic stat increases.
+
+**Decision:** Prototype equal passive slots rather than weighted passive costs. If a passive is too strong for one slot, first redesign or rebalance it instead of immediately adding a second passive-cost economy.
 
 ## 2026-10-16 — Reactions
 
@@ -89,11 +93,15 @@ The symmetrical `2 branches each` shape is only a test-scope convenience and is 
 
 **Decision:** Use one separate **Signature** slot rather than forcing every class into the same universal ultimate-meter pattern. A Signature may be a burst attack, transformation, stance, summon, rescue, curse, defensive oath, row effect, or timeline intervention. It normally consumes the character's ordinary action and may be limited by cooldown, class resource, charges, battle conditions, or once-per-battle rules. There is no shared party ultimate gauge.
 
+**Decision:** A newly advanced class may initially have one Signature candidate. Mature classes should generally aim for multiple viable Signature choices when the design genuinely supports them; do not create filler just to make counts symmetrical.
+
 ## 2026-10-16 — Skill transformation
 
-**Decision:** Important active skills may use **Techniques**: normally 2-3 mutually exclusive meaningful variants selected outside combat. Techniques do not consume additional active slots and should change targeting, resource interaction, cooldown, status behavior, row access, timing, risk/reward, or role—not merely provide a slightly larger damage coefficient.
+**Decision:** Important active skills may use **Techniques**: normally 2-3 mutually exclusive meaningful variants selected outside combat. Techniques do not consume additional active slots and should change targeting, resource interaction, cooldown, status behavior, row access, timing, risk/reward, weapon interaction, or role—not merely provide a slightly larger damage coefficient.
 
 **Decision:** Rookvale does not plan a giant dedicated specialization tree for every active skill. Build depth comes from the combination of active loadout, Techniques on important skills, selectable passives, the innate class mechanic, weapons, Reaction, Signature, equipment, and class progression.
+
+**Decision:** Current mature-lineage content targets are roughly **12-16 normal active choices**, **7-10 selectable passive choices**, **2-4 Reaction candidates for reaction-oriented classes**, **2-3 Signature candidates when justified**, and Techniques on roughly **3-5 important active skills**. These are production targets, not quotas or symmetry rules.
 
 ## 2026-10-15 — Platform order
 
