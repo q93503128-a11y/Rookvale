@@ -15,9 +15,14 @@ This document tracks what Rookvale studies from external games and, equally impo
 | Large class-roster structure | Tree of Savior, Orna / Hero of Aethric, MapleStory | Large fantasy coverage, lineage readability, horizontal expansion, maintenance cost | Maintain an 80-100+ concept design bank but implement gradually; no symmetry requirement across trees |
 | Class advancement | Tree of Savior, Guild Wars 2 specializations, MapleStory, Orna | Branch clarity, specialization depth, hidden classes, horizontal vs vertical growth | Deliberately asymmetric trees; branch only when gameplay/fantasy genuinely diverges; linear promotions must still add mechanics |
 | Weapon/class relationship | Guild Wars 2, World of Warcraft, Diablo IV, Final Fantasy XIV | Multiple weapons per class, specialization weapon unlocks, loot fragmentation | Origin disciplines use related weapon pools, not one exact weapon; descendants may specialize or unlock additional weapons |
-| Skill loadouts | Hero of Aethric / Orna, Guild Wars 2 | Learned pool versus equipped subset, readable hotbars, same-class build diversity | Class-bound skills; learn more than can be equipped; no random card draw and no unrestricted cross-class best-of hotbar |
-| Class resources / gauges | Final Fantasy XIV, World of Warcraft, Guild Wars 2, Orna | Job gauges, Rage/Mana/Chi-like resources, class-specific mechanics | Cooldowns plus optional class-specific resources/stacks/marks; not every class uses universal MP or even a visible bar |
-| Passives / traits | Guild Wars 2, Orna, MMORPG specialization systems | Rule-changing traits, innate passives, build choices | Major passives should change behavior more often than provide generic small stat bumps |
+| Skill loadouts | WAKFU, Guild Wars 2, Last Epoch, Darkest Dungeon II, Chained Echoes | Learned pool versus equipped subset, action-bar density, same-class build diversity | Mature target: 8 normal active slots; universal commands separate; learn more than can be equipped |
+| Selectable passives | WAKFU, Guild Wars 2, Fell Seal, Horizon's Gate, TROUBLESHOOTER | Passive-slot counts, fixed vs selectable identity, rule-changing traits | 1 innate class mechanic plus 4 selectable class-bound passives; avoid stat-bump-dominated boards |
+| Reactions / counters | Fell Seal, TROUBLESHOOTER, tactical RPG counter systems | Dedicated counter layer, trigger rules, anti-loop safeguards | Prototype 1 dedicated Reaction slot; reactions are not full turns and cannot recursively chain by default |
+| Signature / ultimate layer | Guild Wars 2 elite skills, Battle Chasers Bursts, class-specific capstones from RPGs | Dedicated high-impact skill presentation, cooldown/resource gating, class fantasy | 1 Signature slot; no shared party ultimate gauge; Signature need not be a damage nuke and normally consumes the ordinary action |
+| Skill transformation | Last Epoch, Grim Dawn skill modifiers, Darkest Dungeon II paths, Guild Wars 2 traits | Per-skill transformation, global modifiers, tradeoffs, production burden | Important skills may use 2-3 mutually exclusive Techniques; no giant tree required for every skill |
+| Long-tail ability research | TROUBLESHOOTER, Siralim Ultimate, Stolen Realm, Fell Seal, Battle Chasers, Horizon's Gate and other niche/indie RPGs | Unusual passives, triggers, hybrid builds, restrictions, reactions, resource loops | Production research deliberately includes useful smaller/less-famous games instead of repeatedly mining only major franchises |
+| Class resources / gauges | Final Fantasy XIV, World of Warcraft, Guild Wars 2, Battle Chasers, Orna | Job gauges, Rage/Mana/Chi-like resources, temporary combat resources, class-specific mechanics | Cooldowns plus optional class-specific resources/stacks/marks; not every class uses universal MP or even a visible bar |
+| Passives / traits | Guild Wars 2, TROUBLESHOOTER, Siralim Ultimate, Fell Seal, Orna | Rule-changing traits, innate passives, build choices, mastery combinations | Major passives should change behavior more often than provide generic small stat bumps |
 | Status effects / CC | Guild Wars 2, Darkest Dungeon, tactical RPGs | Hard/soft CC distinction, buffs/debuffs, boss resistance/break systems | Broad functional variety; avoid multiple differently named effects that all just mean “lose one turn” |
 | Party finding | Broken Ranks and modern MMOs | Activity filters, role filtering, requirements, reducing party-formation friction | Treat party finder as core MMO UX, not late polish |
 | Boss encounters | DOFUS/WAKFU, Broken Ranks, For The King II, selected JRPGs | Telegraphing, phases, role value, coordination checks, CC resistance, failure recovery | Open; boss-control system should preserve value for CC classes without allowing stun-locks |
@@ -29,17 +34,52 @@ This document tracks what Rookvale studies from external games and, equally impo
 | Social / party UX | Broken Ranks and modern MMOs | Invite flow, reconnect behavior, party leader authority, readiness, matchmaking | Open |
 | Deep system interaction | Divinity: Original Sin 2 | Systemic party skill interactions and encounter consequences | Depth reference only; do not inherit its slower encounter pacing by default |
 
+## Key ability-system findings
+
+### WAKFU
+- Demonstrates that a single persistent MMORPG character can support a broad learned/equipped spell system, including a large active deck and several passives.
+- Rookvale uses a smaller visible loadout because turns, touch UI, Roblox portability, and one-action pacing favor faster reading.
+
+### Guild Wars 2
+- Separates weapon skills, selectable utilities, elite skills, and profession mechanics.
+- Specializations combine fixed identity with selectable traits and can alter profession mechanics.
+- Rookvale borrows the layered-build principle rather than its real-time hotbar structure.
+
+### Last Epoch
+- Five equipped skills gain substantial depth through per-skill specialization trees.
+- Rookvale borrows meaningful skill transformation but reduces the production burden to lightweight Techniques on important skills rather than building a large tree for every skill.
+
+### Grim Dawn
+- Distinguishes active skills, passives, and local skill modifiers.
+- Useful evidence for separating one-skill transformations from broader class/passive changes.
+
+### Fell Seal: Arbiter's Mark
+- Distinct active, passive, and counter layers provide a strong reference for a separate Reaction slot.
+- Rookvale keeps reactions class-bound and applies strict non-full-turn / anti-recursion rules.
+
+### Darkest Dungeon II
+- Characters unlock more skills than they equip, and paths can alter how existing skills function.
+- Useful reference for role-changing variants rather than simple stronger copies.
+
+### TROUBLESHOOTER: Abandoned Children
+- A deep mastery board can create enormous build variety through conditional interactions and mastery sets.
+- It is also a warning against too many rigid slot categories and filler choices.
+- Rookvale takes the rule-changing passive depth but keeps four selectable passives rather than a giant board.
+
+### Battle Chasers: Nightwar
+- Basic actions, temporary combat resources, perks, and Burst abilities demonstrate several ways to connect ordinary actions to stronger class moments.
+- Rookvale does not use its shared party Burst-meter structure.
+
+### Siralim Ultimate
+- Specialization perks show how aggressively different passive rules can support unusual class fantasies.
+- Rookvale uses this as a mechanic-idea source only; it is not a model for party or roster structure.
+
 ## Key class-roster findings
 
 ### Tree of Savior
 - Official current listings demonstrate a very large fantasy range under a small set of broad ancestry trees.
 - Its Re:Build developer posts are an important warning: later vertical tiers can invalidate earlier choices, while 80+ classes materially increase balance, concept, and maintenance burden.
 - Rookvale therefore uses a broad design bank but staged implementation and more horizontal/asymmetric growth.
-
-### Guild Wars 2
-- A profession combines weapon access, a profession mechanic, skills, and traits.
-- Elite specializations demonstrate that a descendant can meaningfully change a core mechanic and historically often add weapon access.
-- Rookvale borrows the principle that a specialization should change rules, not merely coefficients.
 
 ### Final Fantasy XIV
 - Strong role readability, unique job actions/traits/gauges, and distinctive job fantasies are useful references.
@@ -59,15 +99,17 @@ This document tracks what Rookvale studies from external games and, equally impo
 ### Diablo IV
 - Barbarian Arsenal is useful evidence that multiple weapon types can be part of one class identity rather than an exception that breaks the class system.
 
-## Current class production rule
+## Current production rules
 
 See:
 
 - `docs/01-gameplay/CLASSES_PROGRESSION.md`
 - `docs/01-gameplay/CLASS_ROSTER_MASTER_PLAN.md`
+- `docs/01-gameplay/ABILITY_LOADOUT_SYSTEM.md`
 - `docs/07-research/CLASS_ROSTER_RESEARCH_02.md`
+- `docs/07-research/SKILL_LOADOUT_PASSIVE_RESEARCH_02.md`
 
-The long-term design bank is broad, but the first vertical slice implements only four origins and eight immediate advanced classes. Expansion happens only after those systems prove fun, readable, solo-viable, party-useful, and maintainable.
+The long-term design bank is broad, but the first vertical slice implements only a small class subset. Ability production likewise starts narrowly, while the long-term research bank remains broad.
 
 ## Research rule
 
