@@ -24,8 +24,16 @@ This directory is the canonical design source for Rookvale. The goal is to keep 
 | Classes & progression | [`01-gameplay/CLASSES_PROGRESSION.md`](01-gameplay/CLASSES_PROGRESSION.md) | Core direction locked / content expanding |
 | Ability loadout | [`01-gameplay/ABILITY_LOADOUT_SYSTEM.md`](01-gameplay/ABILITY_LOADOUT_SYSTEM.md) | Core architecture locked |
 | First eight class kits | [`01-gameplay/classes/`](01-gameplay/classes/) | Draft for prototype |
-| Multiplayer & parties | [`01-gameplay/MULTIPLAYER.md`](01-gameplay/MULTIPLAYER.md) | Draft / core party assumptions set |
-| World structure | [`02-world/WORLD_STRUCTURE.md`](02-world/WORLD_STRUCTURE.md) | Draft |
+| Character progression & rewards | [`01-gameplay/PROGRESSION_REWARDS.md`](01-gameplay/PROGRESSION_REWARDS.md) | Core progression philosophy locked |
+| Advancement content | [`01-gameplay/ADVANCEMENT_CONTENT.md`](01-gameplay/ADVANCEMENT_CONTENT.md) | Core advancement philosophy locked |
+| Equipment foundation | [`01-gameplay/EQUIPMENT_FOUNDATION.md`](01-gameplay/EQUIPMENT_FOUNDATION.md) | Core equipment philosophy locked |
+| Equipment stats & affixes | [`01-gameplay/EQUIPMENT_STATS_AFFIXES.md`](01-gameplay/EQUIPMENT_STATS_AFFIXES.md) | Core architecture locked |
+| Equipment crafting & refinement | [`01-gameplay/EQUIPMENT_CRAFTING_REFINEMENT.md`](01-gameplay/EQUIPMENT_CRAFTING_REFINEMENT.md) | Core philosophy locked |
+| Multiplayer & parties | [`01-gameplay/MULTIPLAYER.md`](01-gameplay/MULTIPLAYER.md) | Core party/loot/trade direction locked |
+| Multiplayer loot & trade | [`01-gameplay/MULTIPLAYER_LOOT_TRADE.md`](01-gameplay/MULTIPLAYER_LOOT_TRADE.md) | Core rules locked |
+| Death / revival / failure / retreat | [`01-gameplay/DEATH_FAILURE_RETREAT.md`](01-gameplay/DEATH_FAILURE_RETREAT.md) | Core philosophy locked |
+| World structure | [`02-world/WORLD_STRUCTURE.md`](02-world/WORLD_STRUCTURE.md) | Core world model locked |
+| Detailed world exploration rules | [`01-gameplay/WORLD_STRUCTURE_EXPLORATION.md`](01-gameplay/WORLD_STRUCTURE_EXPLORATION.md) | Core exploration philosophy locked |
 | Content systems | [`03-content/CONTENT_SYSTEMS.md`](03-content/CONTENT_SYSTEMS.md) | Open |
 | Art direction | [`04-art-ux/ART_DIRECTION.md`](04-art-ux/ART_DIRECTION.md) | Draft |
 | UI / UX | [`04-art-ux/UI_UX.md`](04-art-ux/UI_UX.md) | Open |
@@ -38,13 +46,12 @@ This directory is the canonical design source for Rookvale. The goal is to keep 
 
 ## Current high-value next work
 
-The immediate design-to-implementation sequence is now:
+The immediate design sequence is now:
 
-1. Build a deterministic combat simulation/core around Natural Turns, Timeline Units, cooldowns, four duration clocks, statuses, Break, Threat, rows, Guard/Intercept, and the first numeric formulas.
-2. Implement the minimal representative first-eight class kits identified in the existing class cross-check rather than every learned skill at once.
-3. Implement the prototype normal enemies, Elite, and Black Banner Captain test encounter as a mechanical harness; names/lore remain replaceable.
-4. Instrument combat telemetry before attempting serious balance: Natural Turns, damage/healing/prevention, target distribution, Break/control frequency, resource flow, TTK, and party-size scaling.
-5. Only after the deterministic rules survive simulation should the web combat UI/animation layer become the main source of balance feedback.
-6. In parallel/after the combat core is credible, continue world/vertical-slice work: starting settlement, exploration area, dungeon/special area, rewards/equipment, NPC/quest content, and early multiplayer validation.
+1. Design the **actual world geography**: continent/world count, launch Region count, Region themes, cultures, biomes, Tier ranges, and connections.
+2. Define the **starting Region and settlement** strongly enough to support the first playable vertical slice.
+3. Connect world geography to content density: dungeons, bosses, settlements, secrets, advancement content, equipment sources, and multiplayer activities.
+4. Continue deterministic combat implementation/simulation using the already locked Natural-Turn/timeline/status/Break/Threat rules rather than reopening core combat structure without evidence.
+5. After world/content structure is credible, specify quests, world events, gathering/crafting-life content, economy, and endgame repeat structures against that actual geography.
 
-The next useful user review point is playable/simulated evidence rather than another abstract combat-rule round, unless implementation reveals a genuine design fork.
+The next useful world-design review point is a concrete Region roster and connection map rather than another abstract discussion of whether Rookvale should be open-world at all.
