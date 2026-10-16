@@ -110,3 +110,63 @@ The symmetrical `2 branches each` shape is only a test-scope convenience and is 
 ## 2026-10-15 — Reference boundary
 
 **Decision:** Hero of Aethric is a reference for the broad overworld exploration -> turn-based battle format. Other systems should be designed using broader external research rather than treating Hero of Aethric as the complete template.
+
+## 2026-10-16 — Combat temporal vocabulary
+
+**Decision:** Treat a Speed-earned full action opportunity as a **Natural Turn**. Bonus/Free Actions and Reactions are not Natural Turns and do not, by default, tick ordinary cooldowns, Natural-Turn durations, DoT/HoT ticks, or natural-turn resource recovery. Reactions do not recursively trigger additional Reactions by default.
+
+**Decision:** Prototype continuous Timeline Units with a reciprocal Speed model. The first implementation uses `StandardDelayTU = 10000 / EffectiveSpeed`, with action-delay and bounded timing modifiers layered on top. The constant, long-term Speed progression, and final caps remain tunable; the continuous next-action model is the important decision.
+
+**Decision:** Separate persistent **Haste/Slow** from one-shot **Advance/Delay**. Haste/Slow change how future Natural Turns are scheduled; Advance/Delay move an already-scheduled next action. First-slice effects cannot grant an immediate unrestricted full Natural Turn.
+
+## 2026-10-16 — Status duration clocks
+
+**Decision:** Do not force every timed effect into one universal turn duration. Every timed effect declares one of four clocks: **Target Natural Turns**, **Until Source Next Natural Turn**, **Eligible Event Charges**, or **Timeline Units**.
+
+**Decision:** Bonus/Free Actions and Reactions do not advance Target-Natural-Turn or source-Natural-Turn duration clocks by default. A hard-controlled unit still reaches Natural-Turn start/end boundaries so its duration cannot freeze forever merely because its action was denied.
+
+## 2026-10-16 — Status identity and boss control
+
+**Decision:** Differently named statuses must create different decisions. `Stun`, `Freeze`, `Sleep`, `Break`, and `Delay` are not interchangeable one-turn skips; `Burn`, `Bleed`, and `Poison` are not merely recolored DoTs; `Mark`, `Prey`, and `Exposed` are not interchangeable damage-amplification tags.
+
+**Decision:** Prototype `Stun` primarily as an interrupt/bounded shove, `Freeze` as thresholded stored action denial on ordinary enemies, and `Break` as a posture threshold that can cancel only explicitly Breakable preparation while also creating bounded Delay and an Exposed payoff window.
+
+**Decision:** Boss control uses **conversion + temporary repeat resistance**, not blanket immunity. Hard control against bosses normally converts into bounded Break, Delay, vulnerability/setup, or eligible telegraph interruption. Repeating the same hard-control family becomes temporarily less efficient, and repeated boss Breaks within a phase require increasing Break pressure.
+
+## 2026-10-16 — Mark, Prey, Exposed and protection vocabulary
+
+**Decision:** `Exposed` is the shared short vulnerability state. A generic `Mark` is a source-owned setup tag with no automatic universal party damage bonus. `Prey` is Hunter-specific coordination and is not removed by an ordinary generic Cleanse by default.
+
+**Decision:** `Guard` is proactive prepared redirection of eligible direct attacks. `Intercept` is a bounded out-of-turn Reaction. Area/row attacks and explicit Unredirectable/scripted attacks are not automatically swallowed by either mechanic.
+
+## 2026-10-16 — Threat model
+
+**Decision:** Threat is stored **per enemy, per player character** rather than as one global aggro value. Damage, effective healing/barriers, protection actions, and explicit threat skills can contribute. Enemy-specific Threat decays over time. Front/back row, Knight identity, temporary Taunt/Challenge, and enemy AI preferences modify target score rather than making target selection absolute.
+
+**Decision:** Taunt/Threat does not override Area attacks, Unredirectable/scripted mechanics, or explicit enemy identities such as Back-row hunters. The tank should concentrate risk, not make allies untargetable.
+
+## 2026-10-16 — First numeric combat skeleton
+
+**Decision:** Use one compact first-prototype `Power` stat and one `Defense` stat with different skill coefficients for damage, healing, and barriers. Do not split physical attack, magic attack, healing power, physical defense, magical defense, universal Accuracy/Evasion, and Status Hit/Resistance into separate baseline stats before the combat loop itself has been tested.
+
+**Decision:** Prototype deterministic legal hits and mostly deterministic soft-status application. Explicit states may reduce effectiveness or create dodge/block behavior, but the first combat test should not be dominated by opaque miss/status-chance RNG.
+
+**Decision:** Prototype direct mitigation with `100 / (100 + EffectiveDefense)`, no random damage variance, capped ordinary Barrier stacking, and visible soft-status resistance tiers. Exact coefficients and class base stats are Draft balance values rather than long-term production locks.
+
+## 2026-10-16 — First Break and party-scale baselines
+
+**Decision:** The first prototype uses a visible Break Gauge, bounded Break values per skill, partial Break recovery after successful enemy Natural Turns, Exposed after Break, and escalating boss Break maximums after repeated Break Events in the same phase. Exact numeric values remain Draft.
+
+**Decision:** First boss party scaling is intentionally sublinear in HP and adds composition/mechanic pressure for larger parties. Four-player difficulty must not be solved by simply multiplying boss HP by four. Exact scaling multipliers remain Draft until telemetry exists.
+
+## 2026-10-16 — First combat enemy harness
+
+**Decision:** The first deterministic combat test uses a role-complete enemy ladder: baseline melee, Back-row attacker, defensive Guard/Barrier unit, fast positional unit, status user, healer/support, mixed-pressure Elite, and a multi-phase Boss.
+
+**Decision:** The first boss must exercise Threat, Guard/Intercept, Front/Back rows, Break, Burn, Chill/Freeze conversion, Cleanse/Dispel, Barrier/healing, intent prediction, Mark/Prey, companion cadence, Reactions, and Signature windows. It must include tactical state changes and Breakable telegraphs rather than function as a pure HP sponge.
+
+**Decision:** Enemy names, faction identity, lore, exact stats, exact AI weights, rewards, and final art are not locked by this mechanical harness.
+
+## 2026-10-16 — Combat implementation order
+
+**Decision:** The next high-value step is a deterministic combat core/simulator with telemetry before serious visual balancing. Implement Natural Turns, Timeline Units, cooldowns, duration clocks, statuses, Break, Threat, rows, Guard/Intercept, representative first-eight abilities, the enemy ladder, and combat logging first; use the results to tune before expanding the full class ability pool or polishing every combat presentation detail.
