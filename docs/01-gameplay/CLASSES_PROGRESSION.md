@@ -1,6 +1,6 @@
 # Classes and Progression
 
-**Status:** Core identity locked; exact class roster, tree depth, and slot counts open
+**Status:** Core identity, persistent Character Level + Class Mastery model, class switching, and asymmetric advancement principles locked; exact roster, level caps, mastery curves, and individual advancement requirements remain open
 
 ## Player-character model
 
@@ -26,6 +26,137 @@ Rookvale is **not a party-collection game**. Each human player primarily control
 - Parent/base abilities may remain available to their own descendant branches where the class tree explicitly treats them as part of the same lineage, but unrelated class branches do not freely share skills.
 - **Top-level / primordial class families are organized primarily by weapon family or core combat implement.** Descendants of the same root normally share that weapon family even after their class identities diverge.
 - Weapon families should stay broad enough to support many descendant classes; Rookvale should avoid creating a unique weapon type for every specialization.
+
+## Character growth model
+
+Rookvale uses two deliberately separate progression layers:
+
+1. **Character Level** — persistent numerical growth of the one player avatar.
+2. **Class Mastery** — class-specific depth, options, and mastery.
+
+This separation is intended to support a very large long-term class roster without forcing players to rebuild basic combat power from level 1 every time they try a new class.
+
+### Persistent Character Level
+
+Character Level belongs to the persistent avatar, not to the currently equipped class.
+
+- Changing class never resets or lowers Character Level.
+- Character Level provides the general baseline for character combat scale, equipment/content progression, and broad system unlocks.
+- The class equipped when a level is gained must not permanently distort the character's future stat potential.
+- Rookvale therefore does **not** use hidden historical stat-growth traps where leveling as Knight permanently makes a later caster worse, or leveling as a caster permanently makes a later Knight fragile.
+
+Conceptually, baseline combat stats should be calculated from something like:
+
+```text
+Character-Level baseline
+x current Class stat profile
++ equipment and other explicit modifiers
+```
+
+The exact stat formula, level cap, and progression curve are not locked yet.
+
+### Per-class Class Mastery
+
+Every unlocked class stores its own **Class Mastery** progression.
+
+Class Mastery primarily represents how deeply the player has learned that combat identity. It should unlock **breadth, sophistication, and build options** rather than rebuild lost baseline HP/Power after switching.
+
+Class Mastery can unlock or expand:
+
+- normal Active choices;
+- selectable Passives;
+- Reaction candidates;
+- Signature candidates;
+- Techniques;
+- advanced interactions with the class's innate mechanic;
+- selected weapon/class interactions;
+- later lineage advancement requirements.
+
+A newly unlocked class must receive its defining innate mechanic and a sufficient functional starter kit immediately. It should be numerically capable of participating near the character's current progression tier even before high Mastery.
+
+The intended progression feel is:
+
+```text
+usable immediately -> increasingly expressive -> fully buildable
+```
+
+not:
+
+```text
+numerically crippled -> grind old zones -> finally usable
+```
+
+### No unrelated-class mastery tax
+
+Mastering an unrelated class does **not** grant universal combat-stat bonuses, transferable unrelated combat skills, or mandatory passives to every other class.
+
+Avoid structures such as:
+
+- mastering every tank for permanent account-wide HP;
+- mastering every caster for permanent Power;
+- collecting universally optimal passives from many unrelated lineages;
+- forcing players to level classes they dislike because the endgame assumes those permanent bonuses.
+
+This is especially important because Rookvale's long-term design bank may contain many dozens of advanced classes.
+
+Safe rewards for broad class completion can include:
+
+- titles;
+- cosmetics;
+- appearance options;
+- achievements;
+- codex/collection completion;
+- prestige or noncombat recognition.
+
+Ancestral skill availability inside one explicitly connected lineage remains allowed under the existing lineage rules. This restriction targets **unrelated** class mastery.
+
+### Class switching
+
+Once a class or sibling branch has been legitimately unlocked, the character may return to it later without losing progress.
+
+Switching class:
+
+- keeps Character Level;
+- keeps world/story progression;
+- keeps inventory and permanent ownership;
+- keeps all legitimately unlocked classes;
+- restores the saved Mastery of the selected class;
+- changes the active innate class mechanic, legal class skills, passives, Reaction, Signature, Techniques, and class-specific compatibility rules to that class.
+
+Class switching happens outside active combat. The exact locations, UX, presets, and convenience restrictions remain to be designed, but switching should not require destructive respec costs or re-unlocking a class every time.
+
+### Newly unlocked classes and catch-up
+
+A high-level character who unlocks a new class should not need to return to trivial low-level zones simply to make that class functional.
+
+The new class receives baseline numerical viability from Character Level and the class stat profile. Its lower Mastery is expressed mainly through a smaller kit and fewer build choices.
+
+Example:
+
+- a high-level newly unlocked Oracle is still a high-level combatant;
+- it may initially have only its core innate mechanic, a compact Active set, limited passive choices, and one Signature candidate;
+- deeper Oracle play becomes available as Oracle Mastery rises.
+
+Exact starter-kit size and mastery catch-up speed remain future tuning questions.
+
+### Advancement requirements
+
+Class advancement remains deliberately asymmetric.
+
+A class may require some combination of:
+
+- minimum Character Level;
+- predecessor Class Mastery;
+- class quest or trial;
+- story/region access;
+- boss or encounter completion;
+- exploration/discovery;
+- special item or NPC relationship;
+- unusual lineage conditions for hidden/prestige branches.
+
+Not every class needs every condition. Rookvale does not use one universal ladder such as `Lv.20 -> first promotion, Lv.40 -> second promotion, Lv.60 -> third promotion` for every lineage.
+
+Simple early advancements should stay readable and convenient. Rare, hidden, or prestigious branches may justify more unusual requirements when they contribute to discovery and fantasy rather than arbitrary grind.
 
 ## Weapon-root class principle
 
@@ -88,7 +219,7 @@ This supports:
 
 Universal commands such as Defend, basic item access, escape, and other system actions do not necessarily need to consume normal skill-loadout slots. Class mechanics or class-resource controls may also live outside the ordinary skill slots when appropriate.
 
-The exact maximum number of equipped skills is not locked yet. It must be tested with the fact that Rookvale gives each player only one persistent combat character rather than a collectible party roster.
+The mature loadout architecture is defined in `ABILITY_LOADOUT_SYSTEM.md`; Class Mastery controls when and how class-bound choices become available but does not replace that loadout structure.
 
 ## Role vocabulary
 
@@ -212,7 +343,7 @@ Good passives change rules or decisions, for example:
 - altering how Mana is restored or spent;
 - changing how threat, rows, cooldowns, CC, or summons work.
 
-Rookvale may additionally use **selectable class-bound passive traits** to differentiate two players of the same class. Exact passive-slot counts and UI are still open.
+Rookvale additionally uses class-bound selectable passive traits as defined in `ABILITY_LOADOUT_SYSTEM.md` to differentiate two players of the same class.
 
 Avoid passive trees dominated by small generic stat bumps. Flat numbers may support a build, but major passive choices should usually change behavior.
 
@@ -271,17 +402,29 @@ The reason is mechanical and organizational: if Mage owns elemental magic, summo
 
 ## Open questions
 
+### Character growth
+
+- Character Level cap and whether the cap expands over the game's lifetime.
+- Character XP curve, rested/catch-up rules, and how party level differences are handled.
+- Exact Class Mastery scale, cap, and XP/rank curve.
+- Whether Class Mastery comes only from combat or also from quests, exploration, class trials, and class-specific feats.
+- Exact starter kit granted immediately when a new class is unlocked.
+- Exact locations and UX rules for class switching, including whether saved presets can switch classes.
+- Exact advancement requirements for each individual lineage.
+
+### Class structure and equipment
+
 - Exact weapon-family taxonomy and number of primordial weapon roots.
 - Exact number and identity of first playable classes attached to those roots.
 - Whether some weapon roots begin with one broad class before splitting or offer several sibling starting classes immediately.
 - Final magic-family structure and whether occult lineages share the same primordial weapon root as conventional mages.
 - Exact Necromancer / Blood Mage relationship.
-- Can players switch between already-unlocked sibling branches outside combat, and at what cost/location?
-- Is progression primarily character level, class level, equipment, skill mastery, or a combination?
-- How much build identity comes from equipment versus class?
-- Exact number of equipped active skill slots at early, mid, and endgame.
-- Exact structure and number of selectable passive traits.
-- Whether a dedicated signature/ultimate slot exists outside the normal skill loadout.
-- Whether loadout presets can be saved and swapped outside combat.
+- How much build identity comes from equipment versus class.
 - Which classes use Mana and which use other class-specific resources.
 - Should party role shortages be mitigated by consumables, flexible hybrids, encounter scaling, or another system without turning the game into a collectible-party RPG?
+
+## Research reference
+
+The progression-model comparison and rejected alternatives are recorded in:
+
+- `docs/07-research/CHARACTER_PROGRESSION_RESEARCH_01.md`
